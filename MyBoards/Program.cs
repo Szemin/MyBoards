@@ -8,8 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<MyBoardContext>(
-    option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyBoardsConnectionString"))
+//konfiguracja po³¹czenia na poziomie kontenera DI 
+builder.Services.AddDbContext<MyBoardContext>( //rejestracja kontekstu bazy danych w DI
+    option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyBoardsConnectionString")) 
     );
 
 var app = builder.Build();
