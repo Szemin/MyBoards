@@ -16,6 +16,9 @@ namespace MyBoards.Entities
 
 
 
+        public MyBoardContext(DbContextOptions<MyBoardContext> option) :base(option) { }
+        
+
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

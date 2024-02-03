@@ -13,6 +13,16 @@ builder.Services.AddDbContext<MyBoardContext>( //rejestracja kontekstu bazy dany
     option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyBoardsConnectionString")) 
     );
 
+
+
+
+
+
+builder.Services.AddDbContext<MyBoardContext>(
+    option => option.UseSqlServer(builder.Configuration.GetConnectionString("MyBoardsConnectionString"))
+    ) ;
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
