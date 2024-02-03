@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlTypes;
 
 namespace MyBoards.Entities
@@ -9,8 +11,6 @@ namespace MyBoards.Entities
         public int Id { get; set; }
         public string State { get; set; }
         public string Area { get; set; }
-
-        [Column("Iteration_Path")]
         public string IterationPath { get; set; }
         public int Priority { get; set; }
         //Epic
@@ -18,10 +18,9 @@ namespace MyBoards.Entities
         public DateTime? EndDate { get; set; }
         // Issue
         public decimal Efford { get; set; }
-        // Task
+        // Task  
         public string Activity { get; set; }
         public decimal RemainingWork { get; set; }
-
         public string Type { get; set; }
 
 
