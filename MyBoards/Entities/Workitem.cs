@@ -1,4 +1,5 @@
-﻿using System.Data.SqlTypes;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlTypes;
 
 namespace MyBoards.Entities
 {
@@ -9,6 +10,7 @@ namespace MyBoards.Entities
         public string State { get; set; }
         public string Area { get; set; }
 
+        [Column("Iteration_Path")]
         public string IterationPath { get; set; }
         public int Priority { get; set; }
         //Epic

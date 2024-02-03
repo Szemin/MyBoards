@@ -4,6 +4,10 @@ namespace MyBoards.Entities
 {
     public class MyBoardContext : DbContext
     {
+        /// <summary>
+        /// przekazanie obiektu typu DbContextOptions dla klasy MyBoardContext wywołując konstruktor bazowy z tymi opcjami
+        /// </summary>
+        /// <param name="options"></param>
         public MyBoardContext(DbContextOptions<MyBoardContext> options) : base(options)
         {
                 
@@ -13,11 +17,7 @@ namespace MyBoards.Entities
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Address> Addresses { get; set; }
-
-
-
-        public MyBoardContext(DbContextOptions<MyBoardContext> option) :base(option) { }
-        
+      
 
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
