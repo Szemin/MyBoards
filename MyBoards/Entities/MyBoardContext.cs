@@ -34,9 +34,12 @@ namespace MyBoards.Entities
 
             modelBuilder.Entity<Comment>(eb =>
             {
-                eb.Property(x => x.CreatedDate).HasDefaultValueSql("getutcdate()");
-                eb.Property(x => x.UpdatedDate).ValueGeneratedOnUpdate(); 
+                eb.Property(x => x.CreatedDate).HasDefaultValueSql("getutcdate()"); //auto przypis i default ustawiane przez serwer sql
+                eb.Property(x => x.UpdatedDate).ValueGeneratedOnUpdate(); //update gdy jest zmiana w encji
+                
             });
+          
+           
         }
 
         #region complex primary
