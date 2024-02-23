@@ -7,6 +7,9 @@
         public string Author { get; set; }   
         public DateTime CreatedDate { get; set; }   
         public DateTime? UpdatedDate { get; set;}
+        public Workitem Workitem { get; set; }
+
+        public int WorkItemId { get; set; } //klucz obcy typ na postawie klucza głównego 
 
     }
 }

@@ -38,8 +38,11 @@ namespace MyBoards.Entities
                 eb.Property(x => x.UpdatedDate).ValueGeneratedOnUpdate(); //update gdy jest zmiana w encji
                 
             });
-          
-           
+
+            modelBuilder.Entity<User>()
+                 .HasOne(u => u.Adress)
+                 .WithOne(a => a.User)
+                 .HasForeignKey<Address>(a => a.UserId);
         }
 
         #region complex primary

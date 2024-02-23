@@ -23,6 +23,9 @@ namespace MyBoards.Entities
         public decimal RemainingWork { get; set; }
         public string Type { get; set; }
 
+        public List<Comment> Comments { get; set; } = new();
+        public User Auuthor { get; set; }
+        public Guid AuthoID { get; set; }
 
     }
     
