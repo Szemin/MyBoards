@@ -18,12 +18,21 @@ namespace MyBoards.Entities
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<State> States { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {          
+        {
+            modelBuilder.Entity<State>()
+                .Property(s => s.Value)
+                .IsRequired()
+                .HasMaxLength(50);
+
             modelBuilder.Entity<Workitem>(eb =>
             {
-                eb.Property(wi => wi.State).IsRequired();
+                eb.HasOne(w => w.State)
+                .WithMany()
+                .HasForeignKey(w => w.StateId);
+
                 eb.Property(wi => wi.Area).HasColumnType("Varchar(200)");
                 eb.Property(wi => wi.IterationPath).HasColumnName("Iteration_Path");
                 eb.Property(wi => wi.EndDate).HasPrecision(3);
@@ -55,10 +64,7 @@ namespace MyBoards.Entities
                         wit.HasKey(x => new { x.TagId, x.WorkItemId });
                         wit.Property(x => x.PublicationDate).HasDefaultValueSql("getutcdate()");
                     }
-
-                    );
-                
-
+                    );                
             });
 
             modelBuilder.Entity<Comment>(eb =>
