@@ -12,6 +12,7 @@ namespace MyBoards.Entities
         {
                 
         }
+
         public DbSet<Workitem> Workitems { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Tag> Tags { get; set; }
@@ -34,9 +35,9 @@ namespace MyBoards.Entities
                 .WithOne(c => c.Workitem)
                 .HasForeignKey(c => c.WorkItemId);
 
-                eb.HasOne(w => w.Auuthor)
+                eb.HasOne(w => w.Author)
                 .WithMany(u => u.Workitems)
-                .HasForeignKey(w => w.AuthoID);
+                .HasForeignKey(w => w.AuthorID);
             });
 
             modelBuilder.Entity<Comment>(eb =>
