@@ -50,8 +50,10 @@ namespace MyBoards.Entities
                  .HasOne(u => u.Adress)
                  .WithOne(a => a.User)
                  .HasForeignKey<Address>(a => a.UserId);
-        }
 
+            modelBuilder.Entity<WorkItemTag>()
+                .HasKey(x => new { x.TagId, x.WorkItemId });
+        }
         #region complex primary
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
@@ -59,7 +61,5 @@ namespace MyBoards.Entities
         //        .HasKey(x => new { x.Email, x.LastName});               
         //} just in case how to create complex primary key (złożony klucz główny)
         #endregion
-
     }
-
 }

@@ -2,7 +2,12 @@
 {
     public class WorkItemTag
     {
-        public TR User { get; set; }
+
+        public Workitem Workitem { get; set; }
+        public int WorkItemId { get; set; }
+
+        public Tag Tag { get; set; }
+        public int TagId { get; set; }
 
     }
 }

@@ -24,8 +24,8 @@ namespace MyBoards.Entities
         public string Type { get; set; }
 
         public List<Comment> Comments { get; set; } = new();
-        public User Auuthor { get; set; }
-        public Guid AuthoID { get; set; }
+        public User Author { get; set; }
+        public Guid AuthorID { get; set; }
         public List<WorkItemTag> WorkItemTags { get; set; } = new List<WorkItemTag>();
 
 
