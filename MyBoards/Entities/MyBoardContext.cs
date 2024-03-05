@@ -38,6 +38,27 @@ namespace MyBoards.Entities
                 eb.HasOne(w => w.Author)
                 .WithMany(u => u.Workitems)
                 .HasForeignKey(w => w.AuthorID);
+
+                eb.HasMany(w => w.Tags)
+                .WithMany(a => a.WorkItems)
+                .UsingEntity<WorkItemTag>(
+                    w => w.HasOne(wit => wit.Tag)
+                    .WithMany()
+                    .HasForeignKey(wit => wit.TagId),
+
+                    w => w.HasOne(wit => wit.Workitem)
+                    .WithMany()
+                    .HasForeignKey(wit => wit.WorkItemId),
+
+                    wit =>
+                    {
+                        wit.HasKey(x => new { x.TagId, x.WorkItemId });
+                        wit.Property(x => x.PublicationDate).HasDefaultValueSql("getutcdate()");
+                    }
+
+                    );
+                
+
             });
 
             modelBuilder.Entity<Comment>(eb =>
@@ -52,8 +73,7 @@ namespace MyBoards.Entities
                  .WithOne(a => a.User)
                  .HasForeignKey<Address>(a => a.UserId);
 
-            modelBuilder.Entity<WorkItemTag>()
-                .HasKey(x => new { x.TagId, x.WorkItemId });
+           
         }
         #region complex primary
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
