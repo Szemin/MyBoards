@@ -11,8 +11,7 @@ namespace MyBoards.Entities
         public DateTime? EndDate { get; set; }
     }
     public class Issue : Workitem 
-    {
-        
+    {    
         public decimal Efford { get; set; }
     }
     public class Task : Workitem 

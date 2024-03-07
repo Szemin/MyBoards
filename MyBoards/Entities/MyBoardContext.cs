@@ -12,7 +12,6 @@ namespace MyBoards.Entities
         {
                 
         }
-
         public DbSet<Workitem> Workitems { get; set; }
         public DbSet<Issue> Issues { get; set; }
         public DbSet<Epic> Epics { get; set; }
