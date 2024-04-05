@@ -14,6 +14,7 @@ builder.Services.AddDbContext<MyBoardContext>( //rejestracja kontekstu bazy dany
     );
 
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
