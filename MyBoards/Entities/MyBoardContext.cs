@@ -85,6 +85,10 @@ namespace MyBoards.Entities
             {
                 eb.Property(x => x.CreatedDate).HasDefaultValueSql("getutcdate()"); //auto przypis i default ustawiane przez serwer sql
                 eb.Property(x => x.UpdatedDate).ValueGeneratedOnUpdate(); //update gdy jest zmiana w encji
+                eb.HasOne(x => x.Author)  //komentarz ma jednego autora, autor ma wiele komentarzy
+                .WithMany(key => key.Comments)
+                .HasForeignKey(fkey => fkey.AuthorId)
+                .OnDelete(DeleteBehavior.NoAction);
                 
             });
 

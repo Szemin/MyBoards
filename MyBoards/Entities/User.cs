@@ -10,5 +10,6 @@
         public Address Adress { get; set; }
         public List<Workitem> Workitems { get; set; } = new List<Workitem>();
 
+        public List<Comment> Comments { get; set; } = new();
     }
 }
